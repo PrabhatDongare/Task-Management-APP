@@ -8,6 +8,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_BASE_URL } from "../utils/constant";
 
 interface LoginData {
   email: string;
@@ -39,7 +40,7 @@ const HomePage: React.FC = () => {
       if (loginState) {
         const { email, password } = data as LoginData;
         const response = await axios.post<ApiData>(
-          "http://localhost:3000/api/user/login",
+          API_BASE_URL + "user/login",
           { email, password },
         );
         if (response.data?.success) {
@@ -48,7 +49,7 @@ const HomePage: React.FC = () => {
       } else {
         const { name, email, password } = data as SignupData;
         const response = await axios.post<ApiData>(
-          "http://localhost:3000/api/user/signup",
+          API_BASE_URL + "user/signup",
           { name, email, password },
         );
         if (response.data?.success) {

@@ -4,9 +4,11 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from "axios";
+import { API_BASE_URL } from './constant';
+
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/",
+  baseURL: API_BASE_URL,
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
